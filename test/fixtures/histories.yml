@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  devise_id: MyString
+  action: MyString
+  status: false
+  level: 1
+
+two:
+  devise_id: MyString
+  action: MyString
+  status: false
+  level: 1

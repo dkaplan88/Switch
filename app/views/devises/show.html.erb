@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<%= high_chart("container", @h) %>
+
+<h1>Action History</h1>
+<p>
+
+  <% @devise.histories.each do |x| %>
+  <b>Action #<%= x.id %></b><br>
+  Time: <%= format_date(x.created_at) %><br>
+  Action:  <%= x.action %><br>
+  Level:  <%= x.level %><br>
+  <br>
+  <% end %>
+</p>
+
+
+<%= link_to 'Edit', edit_devise_path(@devise) %> |
+<%= link_to 'Back', devises_path %>

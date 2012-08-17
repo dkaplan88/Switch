@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Devise:</b>
+  <%= @history.devise_id %>
+</p>
+
+<p>
+  <b>Action:</b>
+  <%= @history.action %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @history.status %>
+</p>
+
+<p>
+  <b>Level:</b>
+  <%= @history.level %>
+</p>
+
+
+<%= link_to 'Edit', edit_history_path(@history) %> |
+<%= link_to 'Back', histories_path %>
