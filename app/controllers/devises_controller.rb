@@ -19,21 +19,13 @@ class DevisesController < ApplicationController
     
     @devise.histories.each do |x|
       @level << x.level
-      @created_at << x.created_at 
     end
     
-    # @h = LazyHighCharts::HighChart.new('graph') do |f|
-    # 
-    #   f.xAxis(:categories => , :labels=>{:rotation=>-45 , :align => 'right'})
-    #     
-    #   f.chart({:defaultSeriesType=>"spline" , :renderTo => "container" , :inverted => true})
-    # end
     @h = LazyHighCharts::HighChart.new('graph') do |f|
       f.options[:chart][:defaultSeriesType] = "area"
       f.options[:title][:text] = "Device Light Level History"
       f.series(:name=>'Light Level', :data=> @level, type: "areaspline", pointInterval: 24 * 3600 * 1000)
       f.options[:xAxis][:type] = "datetime"
-      
     end
       
     respond_to do |format|
@@ -65,6 +57,7 @@ class DevisesController < ApplicationController
 
     respond_to do |format|
       if @devise.save
+        #API CALL GOES HERE
         format.html { redirect_to @devise, notice: 'Devise was successfully created.' }
         format.json { render json: @devise, status: :created, location: @devise }
       else
@@ -81,6 +74,7 @@ class DevisesController < ApplicationController
 
     respond_to do |format|
       if @devise.update_attributes(params[:devise])
+        #API CALL GOES HERE
         format.html { redirect_to @devise, notice: 'Devise was successfully updated.' }
         format.json { head :no_content }
       else
@@ -95,6 +89,7 @@ class DevisesController < ApplicationController
   def destroy
     @devise = Devise.find(params[:id])
     @devise.destroy
+    #API CALL GOES HERE
 
     respond_to do |format|
       format.html { redirect_to devises_url }

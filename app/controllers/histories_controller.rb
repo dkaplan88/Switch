@@ -47,6 +47,7 @@ class HistoriesController < ApplicationController
 
     respond_to do |format|
       if @history.save
+        #API CALL GOES HERE
         format.html { redirect_to @history, notice: 'History was successfully created.' }
         format.json { render json: @history, status: :created, location: @history }
       else
@@ -63,6 +64,7 @@ class HistoriesController < ApplicationController
 
     respond_to do |format|
       if @history.update_attributes(params[:history])
+        #API CALL GOES HERE
         format.html { redirect_to @history, notice: 'History was successfully updated.' }
         format.json { head :no_content }
       else
@@ -77,7 +79,8 @@ class HistoriesController < ApplicationController
   def destroy
     @history = History.find(params[:id])
     @history.destroy
-
+    #API CALL GOES HERE
+    
     respond_to do |format|
       format.html { redirect_to histories_url }
       format.json { head :no_content }
