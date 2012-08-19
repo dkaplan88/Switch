@@ -22,7 +22,6 @@ class DevisesController < ApplicationController
     end
     
     @h = LazyHighCharts::HighChart.new('graph') do |f|
-      f.options[:chart][:defaultSeriesType] = "area"
       f.options[:title][:text] = "Device Light Level History"
       f.series(:name=>'Light Level', :data=> @level, type: "areaspline", pointInterval: 24 * 3600 * 1000)
       f.options[:xAxis][:type] = "datetime"
