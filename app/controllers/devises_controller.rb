@@ -15,8 +15,8 @@ class DevisesController < ApplicationController
   def show
     @devise = Devise.find(params[:id])
     @level = []
-    @name = @devise.name 
-    @devise.histories.each do |x|
+    @name = Devise.find(params[:id]).name 
+    Devise.find(params[:id]).histories.each do |x|
       @level << x.level 
     end
     

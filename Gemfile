@@ -14,6 +14,8 @@ end
 
 gem 'thin'
 gem 'lazy_high_charts'
+gem "therubyracer", :require => 'v8'
+
 
 # Gems used only for assets and not required
 # in production environments by default.
