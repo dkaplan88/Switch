@@ -15,15 +15,14 @@ class DevisesController < ApplicationController
   def show
     @devise = Devise.find(params[:id])
     @level = []
-    @created_at = []
-    
+    @name = @devise.name 
     @devise.histories.each do |x|
-      @level << x.level
+      @level << x.level 
     end
     
     @h = LazyHighCharts::HighChart.new('graph') do |f|
-      f.options[:title][:text] = "Device Light Level History"
-      f.series(:name=>'Light Level', :data=> @level, type: "areaspline", pointInterval: 24 * 3600 * 1000)
+      f.options[:title][:text] = "#{@name}'s Light History"
+      f.series(:name=>'Light Level', :data=> @level, type: "areaspline", pointInterval: 24 * 3600 * 1000, pointStart: Time.utc(2012,"aug",1,20,15,1).to_i * 1000 )
       f.options[:xAxis][:type] = "datetime"
     end
       
