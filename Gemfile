@@ -11,6 +11,8 @@ end
 group :production do
   gem 'pg'
 end
+
+gem 'thin'
 gem 'lazy_high_charts'
 
 # Gems used only for assets and not required
