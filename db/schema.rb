@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120816025931) do
+ActiveRecord::Schema.define(:version => 20120820204113) do
 
   create_table "devises", :force => true do |t|
     t.string   "name"
@@ -20,12 +20,12 @@ ActiveRecord::Schema.define(:version => 20120816025931) do
   end
 
   create_table "histories", :force => true do |t|
-    t.string   "devise_id"
     t.string   "action"
     t.boolean  "status"
     t.integer  "level"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "devise_id"
   end
 
 end
