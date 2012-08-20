@@ -48,7 +48,7 @@ class HistoriesController < ApplicationController
     respond_to do |format|
       if @history.save
         #API CALL GOES HERE
-        format.html { redirect_to @history, notice: 'History was successfully created.' }
+        format.html { redirect_to devise_path(@history.devise_id), notice: 'History was successfully created.' }
         format.json { render json: @history, status: :created, location: @history }
       else
         format.html { render action: "new" }
@@ -80,7 +80,6 @@ class HistoriesController < ApplicationController
     @history = History.find(params[:id])
     @history.destroy
     #API CALL GOES HERE
-    
     respond_to do |format|
       format.html { redirect_to histories_url }
       format.json { head :no_content }
