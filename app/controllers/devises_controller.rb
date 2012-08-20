@@ -56,7 +56,7 @@ class DevisesController < ApplicationController
     respond_to do |format|
       if @devise.save
         #API CALL GOES HERE
-        format.html { redirect_to: @devise, notice: 'Devise was successfully created.' }
+        format.html { redirect_to @devise, notice: 'Devise was successfully created.' }
         format.json { render json: @devise, status: :created, location: @devise }
       else
         format.html { render action: "new" }
