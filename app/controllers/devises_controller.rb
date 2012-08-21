@@ -17,12 +17,15 @@ class DevisesController < ApplicationController
     @level = []
     @name = Devise.find(params[:id]).name 
     Devise.find(params[:id]).histories.each do |x|
-      @level << x.level 
+      @level << x.percentage 
+      @level << x.percentage 
+      @level << x.percentage 
+      @level << x.percentage 
     end
     
     @h = LazyHighCharts::HighChart.new('graph') do |f|
       f.options[:title][:text] = "#{@name}'s Light History"
-      f.series(:name=>'Light Level', :data=> @level, type: "areaspline", pointInterval: 24 * 3600 * 1000, pointStart: Time.utc(2012,"aug",1,20,15,1).to_i * 1000 )
+      f.series(:name=>'Percentage of Light', :data=> @level, type: "areaspline", pointInterval: 24 * 3600 * 1000, pointStart: Time.utc(2012,"aug",1,20,15,1).to_i * 1000 )
       f.options[:xAxis][:type] = "datetime"
     end
       

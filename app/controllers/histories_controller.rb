@@ -44,11 +44,12 @@ class HistoriesController < ApplicationController
   # POST /histories.json
   def create
     @history = History.new(params[:history])
+    @devises = Devise.all
 
     respond_to do |format|
       if @history.save
         #API CALL GOES HERE
-        format.html { redirect_to devise_path(@history.devise_id), notice: 'History was successfully created.' }
+        format.html { redirect_to devise_path(@history.devise), notice: 'History was successfully created.' }
         format.json { render json: @history, status: :created, location: @history }
       else
         format.html { render action: "new" }

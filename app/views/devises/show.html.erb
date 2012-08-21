@@ -2,18 +2,62 @@
 
 
 <%= high_chart("container", @h) %>
+<!-- <#script>
+  $(function() {
+    $.getJSON('http://www.highcharts.com/samples/data/jsonp.php?filename=aapl-c.json&callback=?', function(data) {
 
+      // Create the chart
+      window.chart = new Highcharts.StockChart({
+        chart : {
+          renderTo : 'container'
+        },
+
+        rangeSelector : {
+          selected : 1
+        },
+
+        title : {
+          text : 'AAPL Stock Price'
+        },
+
+        series : [{
+          name : 'AAPL Stock Price',
+          data : <%= @level %>,
+          type : 'spline',
+          threshold : null,
+          tooltip : {
+            valueDecimals : 2
+          },
+          fillColor : {
+            linearGradient : {
+              x1: 0, 
+              y1: 0, 
+              x2: 0, 
+              y2: 1
+            },
+            stops : [[0, Highcharts.getOptions().colors[0]], [1, 'rgba(0,0,0,0)']]
+          }
+        }]
+      });
+    });
+  });
+  
+</script> -->
+
+<div id="container"></div>
 <h1>Action History</h1>
-<%= link_to "Add an Action", new_history_path %>
+<%= link_to "Add an Action", new_history_url(devise_id: @devise.id) %>
+
+<% i = 1 %>
+<% @devise.histories.each do |x| %>
 <p>
-  <% i = 1 %>
-  <% @devise.histories.each do |x| %>
+
     <b>Action #<%= i %></b><br>
     Call:  <%= x.action %><br>
     Level:  <%= x.level %><br>
     <br>
     <% i += 1 %>
-  <% end %>
+<% end %>
 </p>
 
 <%= link_to 'Back', devises_path %>
