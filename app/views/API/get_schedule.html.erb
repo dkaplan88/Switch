@@ -1,0 +1,8 @@
+<h1>Scheduled Calls of Your Device</h1>
+
+<% @get_schedule["schedule"].each do |call| %>
+  <p>
+      Time #<%= call["time"] %><br>
+      Action: <%= call["action"] %><br>
+  </p>
+<% end %>

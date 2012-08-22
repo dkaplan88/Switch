@@ -1,0 +1,8 @@
+<h1>Action History</h1>
+
+<% @get_history["history"].each do |call| %>
+  <p>
+      Action #<%= call["time"]["action"] %><br>
+      Level: <%= call["time"]["dim-level"] %><br>
+  </p>
+<% end %>
