@@ -1,4 +1,9 @@
 class DevisesController < ApplicationController
+  
+  def get_history
+    @device = Elroy
+    @get_history = JSON.parse(open("http://swtch.co/device/#{@device}/history").read)
+  end
   # GET /devises
   # GET /devises.json
   def index
